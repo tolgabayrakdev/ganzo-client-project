@@ -18,7 +18,6 @@ const routes = createBrowserRouter([
     {
         path: "/",
         element: <HomePage />
-
     },
     {
         path: "/sign-in",
