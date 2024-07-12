@@ -1,5 +1,4 @@
-import { Button, Container, Group, Paper, Text, TextInput, Title } from '@mantine/core';
-import { Link } from 'react-router-dom';
+import { Button, Container, Paper, Text, TextInput, Title } from '@mantine/core';
 
 type Props = {};
 
@@ -14,14 +13,7 @@ export default function ResetPassword({ }: Props) {
             <Paper withBorder shadow="md" p={30} mt={30} radius="md">
                 <form>
                     <TextInput label="Email" placeholder="you@mantine.dev" />
-                    <Group justify="space-between" mt="lg">
-                        <Link
-                            to="/login"
-                            style={{ textDecoration: 'none', fontSize: '14px' }}
-                        >
-                            Giriş ekranı
-                        </Link>
-                    </Group>
+            
                     <Button color="" type="submit" fullWidth mt="md">
                         Bağlantı Gönder
                     </Button>

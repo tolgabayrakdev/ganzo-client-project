@@ -90,7 +90,7 @@ export default function SignIn() {
             <Title ta="center">Tekrardan hoşgeldin!</Title>
             <Text c="dimmed" size="sm" ta="center" mt={5}>
                 Henüz bir hesabınız yok mu?{' '}
-                <Link to="/sign-up" style={{ textDecoration: 'none', color: "blue" }}>
+                <Link to="/sign-up" style={{ textDecoration: 'none', fontWeight: "600", color: "#434243" }}>
                     Hesap oluştur
                 </Link>
             </Text>
@@ -110,8 +110,8 @@ export default function SignIn() {
                     />
                     <Group justify="space-between" mt="lg">
                         <Link
-                            to="/sign-up"
-                            style={{ textDecoration: 'none', fontSize: '14px' }}
+                            to="/reset-password"
+                            style={{ textDecoration: 'none', fontWeight: "600", color: "#434243", fontSize: '14px' }}
                         >
                             Parolamı unuttum ?
                         </Link>

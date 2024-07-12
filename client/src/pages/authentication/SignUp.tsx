@@ -77,7 +77,7 @@ export default function SignUp() {
             <Title ta="center">Tekrardan hoşgeldin!</Title>
             <Text c="dimmed" size="sm" ta="center" mt={5}>
                 Zaten hesabınız var mı?{' '}
-                <Link to="/sign-in" style={{ textDecoration: 'none', color: "blue" }}>
+                <Link to="/sign-in" style={{ textDecoration: 'none',fontWeight: "600", color: "#434243" }}>
                     Giriş yap
                 </Link>
             </Text>
