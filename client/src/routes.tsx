@@ -7,7 +7,7 @@ const HomePage = lazy(() => import("./pages/Home"));
 
 const AppLayout = lazy(() => import("./layouts/AppLayout"));
 const AppIndexPage = lazy(() => import('./pages/app/Index'));
-
+const AppSettingsPage = lazy(() => import('./pages/app/Settings'));
 
 const SignInPage = lazy(() => import('./pages/authentication/SignIn'));
 const SignUpPage = lazy(() => import('./pages/authentication/SignUp'));
@@ -35,7 +35,8 @@ const routes = createBrowserRouter([
         path: "/app",
         element: <AppLayout />,
         children: [
-            { path: "", element: <AppIndexPage />, index: true }
+            { path: "", element: <AppIndexPage />, index: true },
+            { path: "settings", element: <AppSettingsPage /> }
         ]
     }
 ]);

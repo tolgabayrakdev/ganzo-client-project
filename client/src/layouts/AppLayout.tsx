@@ -1,6 +1,6 @@
 import { useDisclosure } from '@mantine/hooks';
 import { AppShell, Avatar, Burger, Button, Group, Menu, rem, Text, UnstyledButton, useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { IconMoon2, IconSettings, IconTrash } from '@tabler/icons-react';
 import { notifications } from '@mantine/notifications';
 
@@ -9,8 +9,12 @@ type Props = {}
 export default function AppLayout({ }: Props) {
     const [opened, { toggle }] = useDisclosure();
     const navigate = useNavigate();
+    const location = useLocation();
     const { setColorScheme } = useMantineColorScheme();
     const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
+
+    const isActive = (path: string) => location.pathname === path;
+
 
     const handleLogoutRequest = async () => {
         try {
@@ -46,7 +50,11 @@ export default function AppLayout({ }: Props) {
                         <Group justify="space-between" style={{ flex: 1 }}>
                             <Text c="blue" size="xl">Ganzo</Text>
                             <Group ml="xl" gap={0} visibleFrom="sm">
-                                <UnstyledButton c="blue" component={Link} to="/app" px="md">Home</UnstyledButton>
+                                <UnstyledButton
+                                    style={{
+                                        textDecoration: isActive("/app") ? "underline" : "none"
+                                    }}
+                                    c="blue" component={Link} to="/app" px="md">Home</UnstyledButton>
                                 <UnstyledButton c="blue" px="md">Blog</UnstyledButton>
                                 <UnstyledButton c="blue" px="md">Contacts</UnstyledButton>
                                 <UnstyledButton c="blue" px="md">Support</UnstyledButton>
@@ -60,7 +68,7 @@ export default function AppLayout({ }: Props) {
 
                                     <Menu.Dropdown>
                                         <Menu.Label>Application</Menu.Label>
-                                        <Menu.Item leftSection={<IconSettings style={{ width: rem(14), height: rem(14) }} />}>
+                                        <Menu.Item to="settings" component={Link} leftSection={<IconSettings style={{ width: rem(14), height: rem(14) }} />}>
                                             Settings
                                         </Menu.Item>
                                         <Menu.Item onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
@@ -77,15 +85,22 @@ export default function AppLayout({ }: Props) {
                                         </Menu.Item>
                                     </Menu.Dropdown>
                                 </Menu>
-
-
                             </Group>
                         </Group>
                     </Group>
                 </AppShell.Header>
 
                 <AppShell.Navbar py="md">
-                    <Button to="/app" component={Link} variant="transparent">Home</Button>
+                    <Button
+                        to="/app"
+                        component={Link}
+                        variant="transparent"
+                        style={{
+                            textDecoration: isActive("/app") ? "underline" : "none"
+                        }}
+                    >
+                        Home
+                    </Button>
                     <Button variant="transparent" mt="xs">Blog</Button>
                     <Button variant="transparent" mt="xs">Contacts</Button>
                     <Button variant="transparent" mt="xs">Support</Button>
