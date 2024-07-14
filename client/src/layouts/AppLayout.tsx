@@ -55,7 +55,10 @@ export default function AppLayout({ }: Props) {
                                         textDecoration: isActive("/app") ? "underline" : "none"
                                     }}
                                     c="blue" component={Link} to="/app" px="md">Home</UnstyledButton>
-                                <UnstyledButton c="blue" px="md">Blog</UnstyledButton>
+                                <UnstyledButton style={{
+                                    textDecoration: isActive("/app/customers") ? "underline" : "none"
+                                }}
+                                    c="blue" component={Link} to="/app/customers" px="md">Müşteriler</UnstyledButton>
                                 <UnstyledButton c="blue" px="md">Contacts</UnstyledButton>
                                 <UnstyledButton c="blue" px="md">Support</UnstyledButton>
 
@@ -101,7 +104,12 @@ export default function AppLayout({ }: Props) {
                     >
                         Home
                     </Button>
-                    <Button variant="transparent" mt="xs">Blog</Button>
+                    <Button  to="/app/customers"
+                        component={Link}
+                        variant="transparent"
+                        style={{
+                            textDecoration: isActive("/app/customers") ? "underline" : "none"
+                        }} mt="xs">Müşteriler</Button>
                     <Button variant="transparent" mt="xs">Contacts</Button>
                     <Button variant="transparent" mt="xs">Support</Button>
 
