@@ -8,7 +8,9 @@ const HomePage = lazy(() => import("./pages/Home"));
 const AppLayout = lazy(() => import("./layouts/AppLayout"));
 const AppIndexPage = lazy(() => import('./pages/app/Index'));
 const AppSettingsPage = lazy(() => import('./pages/app/Settings'));
-const AppCustomersPage = lazy(() => import('./pages/app/Customers'));
+const AppIpDomainPage = lazy(() => import('./pages/app/IPDomain'));
+const AppLogPage = lazy(() => import('./pages/app/Log'));
+
 
 
 const SignInPage = lazy(() => import('./pages/authentication/SignIn'));
@@ -38,7 +40,8 @@ const routes = createBrowserRouter([
         element: <AppLayout />,
         children: [
             { path: "", element: <AppIndexPage />, index: true },
-            { path: "customers", element: <AppCustomersPage /> },
+            { path: "ip-domain-analyzer", element: <AppIpDomainPage /> },
+            { path: "log-analyzer", element: <AppLogPage /> },
             { path: "settings", element: <AppSettingsPage /> }
         ]
     }

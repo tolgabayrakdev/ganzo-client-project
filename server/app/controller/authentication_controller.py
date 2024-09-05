@@ -34,7 +34,7 @@ async def verify_user(request: Request):
             return {
                 "success": True,
                 "user": {
-                    "email": result.email
+                    "email": result.email # type: ignore
                 },
             }
         else:

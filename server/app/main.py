@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .controller import authentication_controller
+from dotenv import load_dotenv
+from .controller import authentication_controller, threat_controller
 from .database import engine
 from . import model
 
 model.Base.metadata.create_all(bind=engine)
+load_dotenv()
 
 app = FastAPI()
 
@@ -19,6 +21,7 @@ app.add_middleware(
 )
 
 app.include_router(router=authentication_controller.router, prefix="/api/v1/authentication")
+app.include_router(router=threat_controller.router, prefix="/api/v1/threat")
 
 
 @app.get("/")

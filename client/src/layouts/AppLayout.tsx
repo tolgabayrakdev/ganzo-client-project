@@ -54,12 +54,16 @@ export default function AppLayout({ }: Props) {
                                     style={{
                                         textDecoration: isActive("/app") ? "underline" : "none"
                                     }}
-                                    c="blue" component={Link} to="/app" px="md">Home</UnstyledButton>
+                                    c="blue" component={Link} to="/app" px="md">Anasayfa</UnstyledButton>
                                 <UnstyledButton style={{
-                                    textDecoration: isActive("/app/customers") ? "underline" : "none"
+                                    textDecoration: isActive("/app/ip-domain-analyzer") ? "underline" : "none"
                                 }}
-                                    c="blue" component={Link} to="/app/customers" px="md">Ip / Domain Analiz</UnstyledButton>
-                                <UnstyledButton c="blue" px="md">Contacts</UnstyledButton>
+                                    c="blue" component={Link} to="/app/ip-domain-analyzer" px="md">Ip / Domain Analiz</UnstyledButton>
+
+                                      <UnstyledButton style={{
+                                    textDecoration: isActive("/app/log-analyzer") ? "underline" : "none"
+                                }}
+                                    c="blue" component={Link} to="/app/log-analyzer" px="md">Log Analiz</UnstyledButton>
 
                                 <Menu shadow="md" width={200}>
                                     <Menu.Target>
