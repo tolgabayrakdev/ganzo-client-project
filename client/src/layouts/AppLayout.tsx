@@ -58,11 +58,8 @@ export default function AppLayout({ }: Props) {
                                 <UnstyledButton style={{
                                     textDecoration: isActive("/app/customers") ? "underline" : "none"
                                 }}
-                                    c="blue" component={Link} to="/app/customers" px="md">Müşteriler</UnstyledButton>
+                                    c="blue" component={Link} to="/app/customers" px="md">Ip / Domain Analiz</UnstyledButton>
                                 <UnstyledButton c="blue" px="md">Contacts</UnstyledButton>
-                                <UnstyledButton c="blue" px="md">Support</UnstyledButton>
-
-
 
                                 <Menu shadow="md" width={200}>
                                     <Menu.Target>
